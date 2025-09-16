@@ -7,8 +7,9 @@ const app = express();
 
 // Explicit CORS policy
 const allowedOrigins = [
-  "http://localhost:3000",            // local dev
-  "https://manjiseva-7fnr.vercel.app" // deployed frontend
+  "http://localhost:3000",          
+  "https://manjiseva-7fnr.vercel.app",
+  "https://doctor-dashboard-nu.vercel.app",
 ];
 
 app.use(cors({

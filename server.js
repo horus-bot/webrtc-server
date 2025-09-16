@@ -10,6 +10,7 @@ const allowedOrigins = [
   "http://localhost:3000",          
   "https://manjiseva-7fnr.vercel.app",
   "https://doctor-dashboard-nu.vercel.app",
+  "https://sih-saksham-h7v6.vercel.app",
 ];
 
 app.use(cors({

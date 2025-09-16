@@ -23,9 +23,9 @@ const app = express();
 // Configuration (override via environment variables if needed)
 const DEFAULT_ALLOWED_ORIGINS = [
   "http://localhost:3000",
-  // add deployed frontend origins here, e.g.:
-  // "https://manjiseva-7fnr.vercel.app",
-  // "https://doctor-dashboard-nu.vercel.app",
+  
+   "https://manjiseva-7fnr.vercel.app",
+   "https://doctor-dashboard-nu.vercel.app",
 ];
 const allowedOrigins = process.env.ALLOWED_ORIGINS
   ? process.env.ALLOWED_ORIGINS.split(",").map((s) => s.trim())

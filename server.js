@@ -5,15 +5,32 @@ const cors = require('cors');
 
 const app = express();
 
-// Allow all origins
-app.use(cors());
+// Explicit CORS policy
+const allowedOrigins = [
+  "http://localhost:3000",            // local dev
+  "https://manjiseva-7fnr.vercel.app" // deployed frontend
+];
+
+app.use(cors({
+  origin: function (origin, callback) {
+    if (!origin || allowedOrigins.includes(origin)) {
+      callback(null, true);
+    } else {
+      callback(new Error("Not allowed by CORS"));
+    }
+  },
+  methods: ["GET", "POST"],
+  allowedHeaders: ["Content-Type"],
+  credentials: true
+}));
 
 const server = http.createServer(app);
 
 const io = new Server(server, {
   cors: {
-    origin: "*",   // <--- allow all origins
-    methods: ["GET", "POST"]
+    origin: allowedOrigins,
+    methods: ["GET", "POST"],
+    credentials: true
   }
 });
 
@@ -43,6 +60,6 @@ io.on("connection", (socket) => {
 });
 
 const PORT = process.env.PORT || 5000;
-server.listen(PORT, () => {
+server.listen(PORT, "0.0.0.0", () => {
   console.log(`Signaling server running on port ${PORT}`);
 });

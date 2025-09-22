@@ -26,7 +26,7 @@ const DEFAULT_ALLOWED_ORIGINS = [
   "https://manjiseva-7fnr.vercel.app",
   "https://doctor-dashboard-nu.vercel.app",
   "https://doctor-pwa-app-s6rs.vercel.app",
- " https://manjhiseva-dr.vercel.app/",
+  "https://manjhiseva-dr.vercel.app",
 ];
 const allowedOrigins = process.env.ALLOWED_ORIGINS
   ? process.env.ALLOWED_ORIGINS.split(",").map((s) => s.trim())
